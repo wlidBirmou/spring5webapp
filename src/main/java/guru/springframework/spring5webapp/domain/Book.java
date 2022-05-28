@@ -17,7 +17,8 @@ public class Book {
     @ManyToMany
     @JoinTable(name = "authors_books", joinColumns = @JoinColumn(name="id_author"),inverseJoinColumns = @JoinColumn(name="id_book"))
     private Set<Author> authors;
-
+    @ManyToOne
+    private Publisher publisher;
 
     public Book(){
 
@@ -59,6 +60,14 @@ public class Book {
 
     public void setAuthors(Set<Author> authors) {
         this.authors = authors;
+    }
+
+    public Publisher getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(Publisher publisher) {
+        this.publisher = publisher;
     }
 
     @Override
